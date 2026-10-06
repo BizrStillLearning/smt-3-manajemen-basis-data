@@ -46,3 +46,22 @@ insert into peminjaman values
 (4, 'PJ003', 'NV01', '2026-07-01', '2026-07-02'),
 (5, 'PJ003', 'NV02', '2026-07-01', '2026-07-05'),
 (6, 'PJ003', 'KW01', '2026-07-02', '2026-07-04');
+
+
+
+select
+    peminjaman.id_peminjaman,
+    peminjam.id_peminjam,
+    peminjam.nama,
+    buku.kode_buku,
+    buku.judul_buku,
+    buku.kategori,
+    peminjaman.tgl_pinjam,
+    peminjaman.tanggal_kembali,
+    buku.tarif,
+    peminjam.alamat
+from peminjaman
+join peminjam
+on peminjaman.id_peminjam = peminjam.id_peminjam
+join buku
+on peminjaman.kode_buku = buku.kode_buku;
